@@ -1,13 +1,12 @@
-"""Μοντέλο: δυνητική κοόρτη -> alpha -> εκτιμώμενες κατατάξεις -> προβολή 2040.
+"""Μοντέλο: δυνητική κοόρτη -> alpha -> εκτιμώμενες κατατάξεις, 1976-2026.
 
 Ξεχωρίζει ΠΑΝΤΑ τρία μεγέθη:
   ΡΟΗ      conscripts_modeled - κατατάξεις στο έτος t
   ΑΠΟΘΕΜΑ  serving_modeled    - στρατεύσιμοι υπό τα όπλα στο t
   ΡΟΗ      discharges_modeled - απολύσεις στο t (κατατάξεις μετατοπισμένες)
 
-ΚΡΙΣΙΜΟ: οι γεννήσεις είναι γνωστές μέχρι το 2025, άρα η δυνητική κοόρτη είναι
-ΠΑΡΑΤΗΡΗΜΕΝΗ (όχι προβλεπόμενη) μέχρι το 2025+19 = 2044. Η μόνη παραδοχή στην
-προβολή είναι το alpha.
+ΚΑΜΙΑ ΠΡΟΒΛΕΨΗ: το μοντέλο σταματά στο σήμερα (2026). Η δυνητική κοόρτη
+βγαίνει εξ ολοκλήρου από πραγματικές, ήδη καταγεγραμμένες γεννήσεις.
 
 Έξοδος: data/processed/model_output.csv
 """
@@ -62,7 +61,7 @@ def duration_series(timeline: pd.DataFrame, branch: str,
 def main() -> None:
     cfg = load_config()
     weights = {int(k): float(v) for k, v in cfg["cohort"]["weights"].items()}
-    end_year = int(cfg["model"]["projection_end_year"])
+    end_year = int(cfg["model"]["end_year"])
 
     births = pd.read_csv(PROC / "births_male.csv")
     obs = pd.read_csv(PROC / "conscripts_observed.csv")
@@ -85,7 +84,6 @@ def main() -> None:
 
     lo_mult = float(cfg["alpha"]["scenario_low"])
     hi_mult = float(cfg["alpha"]["scenario_high"])
-    uplift = float(cfg["alpha"]["max_recovery_uplift"])
 
     dur = duration_series(timeline, cfg["service"]["branch_for_derived"],
                           float(cfg["service"]["post2021_effective_months"]))
@@ -104,8 +102,6 @@ def main() -> None:
     df["conscripts_modeled"] = (df.potential_cohort * alpha_hat).round(0)
     df["low"] = (df.potential_cohort * alpha_hat * lo_mult).round(0)
     df["high"] = (df.potential_cohort * alpha_hat * hi_mult).round(0)
-    df["high_max_recovery"] = (
-        df.potential_cohort * alpha_hat * (1 + uplift)).round(0)
     df["duration_months"] = df.year.map(dur)
     df["serving_modeled"] = (
         df.conscripts_modeled * df.duration_months / 12.0).round(0)
@@ -119,7 +115,8 @@ def main() -> None:
         if m is None or pd.isna(m):
             continue
         shift = int(np.ceil(m / 12.0))
-        disch[y + shift] = disch.get(y + shift, 0.0) + n
+        if y + shift <= end_year:
+            disch[y + shift] = disch.get(y + shift, 0.0) + n
     df["discharges_modeled"] = df.year.map(disch)
 
     out = PROC / "model_output.csv"
@@ -130,7 +127,7 @@ def main() -> None:
           f"({int(row.value):,} / {cohort_win:,.0f} μ.ό. κοόρτης {win.start}-{win.stop-1})")
     print(f"κοόρτη: {int(valid.year.min())}-{int(valid.year.max())}, "
           f"{len(valid)} έτη -> {out.name}")
-    for y in (1976, 1985, 1995, 2005, 2015, 2025, 2030, 2035, 2040):
+    for y in (1976, 1985, 1995, 2005, 2015, 2026):
         r = df[df.year == y]
         if r.empty or pd.isna(r.potential_cohort.iloc[0]):
             continue
