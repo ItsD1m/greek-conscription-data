@@ -1,0 +1,224 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Live births by mother's age and newborn's sex",
+ "source": "ESTAT",
+ "updated": "2026-09-30T23:00:00+0200",
+ "value": {
+  "0": 57959,
+  "1": 60966,
+  "2": 60832,
+  "3": 59127,
+  "4": 54862,
+  "5": 51654,
+  "6": 48430,
+  "7": 47384,
+  "8": 47294,
+  "9": 47882,
+  "10": 45686,
+  "11": 44525,
+  "12": 42945,
+  "13": 43531,
+  "14": 43998,
+  "15": 39215,
+  "16": 36511,
+  "17": 35134
+ },
+ "id": [
+  "freq",
+  "unit",
+  "age",
+  "sex",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  1,
+  1,
+  18
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "NR": 0
+    },
+    "label": {
+     "NR": "Number"
+    }
+   }
+  },
+  "age": {
+   "label": "Age class",
+   "category": {
+    "index": {
+     "TOTAL": 0
+    },
+    "label": {
+     "TOTAL": "Total"
+    }
+   }
+  },
+  "sex": {
+   "label": "Sex",
+   "category": {
+    "index": {
+     "M": 0
+    },
+    "label": {
+     "M": "Males"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EL": 0
+    },
+    "label": {
+     "EL": "Greece"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2007": 0,
+     "2008": 1,
+     "2009": 2,
+     "2010": 3,
+     "2011": 4,
+     "2012": 5,
+     "2013": 6,
+     "2014": 7,
+     "2015": 8,
+     "2016": 9,
+     "2017": 10,
+     "2018": 11,
+     "2019": 12,
+     "2020": 13,
+     "2021": 14,
+     "2022": 15,
+     "2023": 16,
+     "2024": 17
+    },
+    "label": {
+     "2007": "2007",
+     "2008": "2008",
+     "2009": "2009",
+     "2010": "2010",
+     "2011": "2011",
+     "2012": "2012",
+     "2013": "2013",
+     "2014": "2014",
+     "2015": "2015",
+     "2016": "2016",
+     "2017": "2017",
+     "2018": "2018",
+     "2019": "2019",
+     "2020": "2020",
+     "2021": "2021",
+     "2022": "2022",
+     "2023": "2023",
+     "2024": "2024"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "DEMO_FASEC",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "DEMO_FASEC",
+   "agencyId": "ESTAT",
+   "version": "52.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2011-11-28T16:12:22+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/DEMO_FASEC\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/DEMO_FASEC</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2023-01-19</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-09-30T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-09-30T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-09-30T23:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/demo_fer_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/demo_fer_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "116851"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2024"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2007"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-09-30T23:00:00+0200"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2026-03-18T23:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "unit": [],
+   "age": [],
+   "sex": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}
