@@ -9,3 +9,6 @@ data/interim/*
 !data/interim/.gitkeep
 *.log
 .env
+
+# Το πλήρες WPP είναι 16 MB - το script ξανακατεβάζει, το απόσπασμα μένει στο repo
+data/raw/WPP2024_Demographic_Indicators_Medium.csv.gz

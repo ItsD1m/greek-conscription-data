@@ -108,6 +108,10 @@ def wpp_gap_fill() -> pd.DataFrame:
     d = pd.read_csv(WPP_GZ, compression="gzip", low_memory=False,
                     usecols=["LocID", "Time", "Births", "SRB"])
     d = d[(d.LocID == 300) & (d.Time.isin(WPP_GAP_YEARS))]
+    # Μικρό απόσπασμα στο data/raw/ ώστε να υπάρχει η προέλευση στο repo χωρίς
+    # να μπαίνει στο git το 16 MB αρχείο του WPP (είναι στο .gitignore).
+    d.to_csv(RAW / "wpp2024_greece_births_srb_1950_1955.csv", index=False,
+             encoding="utf-8")
     male = (d.Births * 1000.0 * d.SRB / (100.0 + d.SRB)).round().astype(int)
     out = pd.DataFrame({"year": d.Time.astype(int), "male_births": male})
     out["source"] = WPP_SOURCE
