@@ -28,7 +28,7 @@ RED, BLUE, GREEN = "#ff2929", "#4486cd", "#17a673"
 WHITE, GREY, FAINT = "#ffffff", "#9aa3ad", "#2b3138"
 
 FONT = "Segoe UI"
-CREDIT = "Γράφημα: ΔΗΜΟΣ  ·  Δεδομένα & κώδικας: github.com/<user>/greek-conscription"
+CREDIT = "Γράφημα: ΔΗΜΟΣ  ·  Δεδομένα & κώδικας: github.com/ItsD1m/greek-conscription-data"
 
 plt.rcParams.update({
     "figure.facecolor": BG, "axes.facecolor": BG, "savefig.facecolor": BG,
@@ -209,7 +209,7 @@ def fig4(model):
         "",
         "ΕΛΣΤΑΤ · ΥΠΕΘΑ",
         size=(7.2, 9.0), chart=(0.11, 0.155, 0.82, 0.40), left=0.10,
-        credit="github.com/<user>/greek-conscription")
+        credit="github.com/ItsD1m/greek-conscription-data")
     f.texts[1].set_fontsize(68)
     f.texts[1].set_y(0.885)
     f.text(0.10, 0.760,
